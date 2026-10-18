@@ -269,6 +269,20 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Anti-geser navbar (bug browser mobile) ----------
+     Di sebagian browser mobile (mis. iOS 26) elemen fixed bergeser naik
+     saat scroll. Jika terdeteksi, navbar dikunci ke visual viewport. */
+  var navEl = document.getElementById('nav');
+  if (navEl && window.visualViewport) {
+    var lockNav = function () {
+      var off = window.visualViewport.offsetTop || 0;
+      navEl.style.transform = off > 0 ? 'translateY(' + off + 'px)' : '';
+    };
+    window.visualViewport.addEventListener('scroll', lockNav, { passive: true });
+    window.visualViewport.addEventListener('resize', lockNav);
+    lockNav();
+  }
+
   /* ---------- Reveal on scroll ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if (prefersReduced || !('IntersectionObserver' in window)) {
@@ -362,6 +376,7 @@
     function goToSlide(i) {
       slideIndex = (i + slideCount) % slideCount;
       renderHero();
+      scheduleAutoplay(); /* reset hitungan: 5 detik penuh setiap slide berubah */
     }
 
     if (heroPrev) heroPrev.addEventListener('click', function () { goToSlide(slideIndex - 1); });
@@ -415,7 +430,42 @@
       else if (e.key === 'ArrowRight') goToSlide(slideIndex + 1);
     });
 
+    /* Autoplay: geser otomatis tiap 5 detik */
+    var AUTOPLAY_MS = 5000;
+    var autoplayTimer = null;
+    var autoplayPaused = false;
+
+    function scheduleAutoplay() {
+      if (prefersReduced) return;
+      window.clearTimeout(autoplayTimer);
+      autoplayTimer = window.setTimeout(function () {
+        if (!autoplayPaused && !dragging && heroInView && !document.hidden) {
+          goToSlide(slideIndex + 1);
+        } else {
+          scheduleAutoplay();
+        }
+      }, AUTOPLAY_MS);
+    }
+
+    /* Berhenti saat kursor/fokus ada di kartu (desktop & keyboard) */
+    if (window.matchMedia('(hover: hover)').matches) {
+      heroCard.addEventListener('mouseenter', function () { autoplayPaused = true; });
+      heroCard.addEventListener('mouseleave', function () { autoplayPaused = false; });
+    }
+    heroCard.addEventListener('focusin', function (e) {
+      var t = e.target;
+      if (!t || !t.matches) { autoplayPaused = true; return; }
+      try {
+        if (t.matches(':focus-visible')) autoplayPaused = true;
+      } catch (err) {}
+    });
+    heroCard.addEventListener('focusout', function () { autoplayPaused = false; });
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) scheduleAutoplay();
+    });
+
     renderHero();
+    scheduleAutoplay();
   }
 
   /* ---------- Galeri screenshot project ---------- */
