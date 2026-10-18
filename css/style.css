@@ -25,6 +25,15 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 svg { display: block; }
 :focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; border-radius: 6px; }
 ::selection { background: var(--accent); color: #fff; }
+html { scrollbar-color: var(--accent) var(--bg); }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 999px;
+  border: 3px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-strong); }
 
 /* ---------- Tokens ---------- */
 :root {
@@ -291,6 +300,34 @@ h2 {
   box-shadow: 0 0 10px 2px var(--accent);
 }
 
+/* ---------- Tombol kembali ke atas ---------- */
+.to-top {
+  position: fixed;
+  right: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  z-index: 80;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  color: var(--accent-strong);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s,
+              border-color .25s ease, color .25s ease;
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { border-color: var(--accent); color: var(--accent); }
+.to-top svg { width: 20px; height: 20px; }
+
 /* ---------- Logo ---------- */
 .logo-mark { width: 38px; height: 38px; }
 .logo-mark--sm { width: 30px; height: 30px; }
@@ -435,6 +472,18 @@ body.is-scrolled .nav {
 .nav__burger.is-active span:nth-child(2) { opacity: 0; }
 .nav__burger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Backdrop gelap saat menu mobile terbuka */
+.nav__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(14, 18, 37, .45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s;
+}
+.nav__backdrop.is-open { opacity: 1; visibility: visible; }
+
 /* ---------- Gradient card (hero & CTA) ---------- */
 .gradient-card {
   background:
@@ -455,6 +504,24 @@ body.is-scrolled .nav {
     radial-gradient(90% 120% at 88% 8%, rgba(159, 179, 232, .22), transparent 55%),
     radial-gradient(70% 90% at 78% 100%, rgba(35, 43, 78, .9), transparent 65%),
     linear-gradient(120deg, #1A2145 0%, #232B52 50%, #2A3466 100%);
+}
+/* Aurora halus: cahaya bernapas pelan di atas kartu gradien */
+.gradient-card { position: relative; }
+.gradient-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(52% 68% at 72% 24%, rgba(255, 255, 255, .32), transparent 68%),
+    radial-gradient(46% 62% at 22% 80%, rgba(130, 150, 206, .36), transparent 72%);
+  opacity: .25;
+  animation: aurora 16s ease-in-out infinite alternate;
+}
+@keyframes aurora {
+  from { opacity: .22; }
+  to { opacity: .6; }
 }
 
 /* ---------- Sparkles ---------- */
@@ -579,6 +646,46 @@ body.is-scrolled .nav {
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+
+/* Halo lembut di belakang foto + chip mengambang (desktop) */
+.hero__visual::before {
+  content: "";
+  position: absolute;
+  inset: 8% -8% -5% -10%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(55% 55% at 50% 52%, rgba(255, 255, 255, .4), rgba(255, 255, 255, 0) 72%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+.hero__chip {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 255, 255, .34);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: .8rem;
+  letter-spacing: .02em;
+  box-shadow: 0 12px 26px -14px rgba(20, 26, 54, .55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: chipFloat 6.5s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero__chip svg { width: 14px; height: 14px; }
+.hero__chip--dev { top: 7%; right: -9%; animation-delay: .8s; }
+.hero__chip--design { bottom: 17%; left: -6%; }
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
 }
 
 .hero__arrow {
@@ -902,7 +1009,30 @@ body.is-scrolled .nav {
   font-weight: 600;
   font-size: 1.05rem;
 }
-.footer__text { color: var(--text-muted); font-size: .88rem; }
+.footer__links { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+.footer__links a { color: var(--text-muted); font-size: .92rem; font-weight: 500; transition: color .25s ease; }
+.footer__links a:hover { color: var(--accent-strong); }
+.footer__social { display: flex; align-items: center; gap: 10px; }
+.footer__icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: transform .25s ease, color .25s ease, border-color .25s ease;
+}
+.footer__icon:hover { color: var(--accent-strong); border-color: var(--accent); transform: translateY(-2px); }
+.footer__icon svg { width: 18px; height: 18px; }
+.footer__text {
+  color: var(--text-muted);
+  font-size: .88rem;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
 
 /* ---------- Testimoni ---------- */
 .testi__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -1008,6 +1138,7 @@ body.is-scrolled .nav {
   .hero__arrow { display: none; }
   .hero__dashes { position: static; margin-top: 30px; }
   .hero__carousel { max-width: 100%; }
+  .hero__chip { display: none; }
 }
 
 @media (max-width: 840px) {
@@ -1029,8 +1160,41 @@ body.is-scrolled .nav {
   .btn { padding: 13px 26px; }
   .nav__logo-text { display: none; }
   .footer__inner { flex-direction: column; text-align: center; justify-content: center; }
+  .footer__links { justify-content: center; }
   .project__bar em { display: none; }
   .project__case li { grid-template-columns: 1fr; gap: 3px; }
+}
+
+/* ---------- Layar sangat kecil (≤400px) ---------- */
+@media (max-width: 400px) {
+  .hero__actions { gap: 10px; }
+  .hero__actions .btn { flex: 1 1 100%; }
+  .hero__badges { gap: 6px; }
+  .badge { padding: 6px 13px; font-size: .79rem; }
+}
+
+/* ---------- Layar pendek (landscape HP / laptop kecil) ---------- */
+@media (max-height: 660px) and (min-width: 861px) {
+  .hero { padding-top: calc(var(--nav-h) + var(--nav-safe) + 14px); }
+  .hero__card { min-height: 0; }
+  .hero__photo-img { height: clamp(240px, 34vw, 360px); }
+}
+
+/* ---------- Perangkat sentuh: cegah hover "lengket" ---------- */
+@media (hover: none) {
+  .identity-card:hover,
+  .service-card:hover,
+  .contact-card:hover,
+  .testi-card:hover,
+  .project__frame:hover,
+  .chip:hover,
+  .badge:hover,
+  .btn:hover,
+  .icon-btn:hover,
+  .nav__cta:hover,
+  .footer__icon:hover { transform: none; }
+  .contact-card:hover .contact-card__arrow { transform: none; }
+  .project__frame:hover .project__shot img { transform: none; }
 }
 
 /* ---------- Reduced motion ---------- */
