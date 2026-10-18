@@ -43,7 +43,7 @@ lalu isi `data-src` (gambar besar) dan `data-alt` (teks alternatif)-nya.
 ### 3. Menambah project baru (mis. "Warung Ibu")
 
 1. Copy satu blok `<article class="project reveal"> ... </article>` di `index.html`
-2. Ganti gambar, judul, deskripsi, dan link
+2. Ganti gambar, judul, deskripsi, baris **Latar / Dikerjakan / Hasil**, durasi (`project__time`), dan link-nya
 3. Tambahkan terjemahan Inggrisnya di `js/main.js` (bagian `translations.en`) jika perlu
 4. Layout zigzag otomatis mengikuti urutan
 
@@ -60,6 +60,29 @@ Semua warna terpusat sebagai variabel di `css/style.css`:
 - `[data-theme="dark"]` → mode gelap
 
 Toggle bahasa ada di navbar (ID/EN, tersimpan otomatis), begitu juga toggle tema (terang/gelap).
+
+### 6. Mengaktifkan section Testimoni (saat sudah ada kutipan asli)
+
+Section Testimoni sengaja disembunyikan (`hidden`) karena belum ada kutipan asli — lebih baik kosong daripada karangan. Begitu kamu punya testimoni nyata, aktifkan begini:
+
+1. Buka `index.html`, cari komentar `TESTIMONI (NONAKTIF)`
+2. Hapus kata `hidden` pada baris `<section class="section" id="testimoni" hidden>`
+3. Ganti 3 teks bertanda `GANTI` dengan kutipan asli (nama + peran + isi kutipan)
+4. Samakan isinya di `js/main.js` bagian `'testi.*'` (ID dan EN)
+5. Opsional: ganti ikon avatar dengan inisial klien, mis. `<span class="testi-card__avatar">SD</span>`
+
+> **Penting:** jangan pernah pakai testimoni karangan. 1–2 kutipan asli jauh lebih meyakinkan daripada 3 kutipan palsu — dan reputasi lebih mahal dari itu.
+
+## Checklist sebelum publikasi
+
+- [ ] Ganti nomor WhatsApp, username GitHub, dan email (lihat poin 1)
+- [ ] Timpa `assets/img/foto-nanda.png` dengan foto aslimu
+- [ ] Timpa `assets/img/nexprint.png` dengan screenshot NexPrint asli
+- [ ] Sudah ada testimoni asli? Isi & aktifkan section Testimoni (poin 6)
+- [ ] Cek versi ID **dan** EN — pastikan terjemahannya enak dibaca
+- [ ] Cek mode terang & gelap
+- [ ] Cek di HP (minimal 360px)
+- [ ] Perbarui `assets/img/og-image.png` supaya preview link bagus
 
 ## Menjalankan
 
