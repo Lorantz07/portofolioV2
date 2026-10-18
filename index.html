@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nanda — Developer &amp; Designer</title>
+  <meta name="description" content="Portofolio Nanda — siswa, developer, designer, dan gamer. Membangun website dan desain antarmuka yang rapi, cepat, dan nyaman dipakai.">
+  <meta name="author" content="Nanda">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nanda — Developer &amp; Designer">
+  <meta property="og:description" content="Siswa yang tumbuh setiap hari. Web developer &amp; UI designer.">
+  <meta property="og:image" content="assets/img/og-image.png">
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Atur tema & bahasa sebelum render supaya tidak berkedip -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('nanda-theme');
+        if (!theme) theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        var lang = localStorage.getItem('nanda-lang');
+        if (lang) document.documentElement.setAttribute('lang', lang);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#beranda" data-i18n="skip">Langsung ke konten</a>
+
+  <div class="progress" aria-hidden="true"><div class="progress__fill"></div></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="nav__logo" href="#beranda" aria-label="Nanda">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect class="logo-bg" x="1" y="1" width="62" height="62" rx="18"/>
+          <path class="logo-line" d="M21 45V19l22 26V19"/>
+          <circle class="logo-dot" cx="21" cy="19" r="3.2"/>
+          <circle class="logo-dot" cx="21" cy="45" r="3.2"/>
+          <circle class="logo-dot" cx="43" cy="19" r="3.2"/>
+          <circle class="logo-dot" cx="43" cy="45" r="3.2"/>
+          <circle class="logo-spark" cx="32" cy="32" r="2.2"/>
+        </svg>
+        <span class="nav__logo-text">Nanda</span>
+      </a>
+
+      <nav class="nav__menu" id="nav-menu" aria-label="Navigasi utama">
+        <a class="nav__link" href="#beranda" data-i18n="nav.home">Beranda</a>
+        <a class="nav__link" href="#tentang" data-i18n="nav.about">Tentang</a>
+        <a class="nav__link" href="#project" data-i18n="nav.projects">Project</a>
+        <a class="nav__link" href="#layanan" data-i18n="nav.services">Layanan</a>
+        <a class="nav__link" href="#kontak" data-i18n="nav.contact">Kontak</a>
+        <a class="nav__cta" href="#kontak" data-i18n="nav.hire">Hire Me</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="lang-toggle" id="lang-toggle" type="button" data-lang="id" aria-label="Ganti bahasa / Switch language">
+          <span>ID</span><span>EN</span>
+        </button>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Ganti tema gelap/terang">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+        </button>
+        <button class="nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Buka menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="beranda">
+      <div class="container">
+        <div class="hero__card gradient-card reveal">
+          <div class="sparkles" aria-hidden="true">
+            <svg class="sparkle sparkle--1" viewBox="0 0 24 24"><path d="M12 1.6l2.1 8.3 8.3 2.1-8.3 2.1L12 22.4l-2.1-8.3L1.6 12l8.3-2.1z"/></svg>
+            <svg class="sparkle sparkle--2" viewBox="0 0 24 24"><path d="M12 1.6l2.1 8.3 8.3 2.1-8.3 2.1L12 22.4l-2.1-8.3L1.6 12l8.3-2.1z"/></svg>
+            <svg class="sparkle sparkle--3" viewBox="0 0 24 24"><path d="M12 1.6l2.1 8.3 8.3 2.1-8.3 2.1L12 22.4l-2.1-8.3L1.6 12l8.3-2.1z"/></svg>
+          </div>
+
+          <div class="hero__content">
+            <p class="hero__eyebrow" data-i18n="hero.greeting">Halo, saya</p>
+            <h1 class="hero__name">Nanda</h1>
+            <p class="hero__tagline" data-i18n="hero.tagline">Siswa yang tumbuh setiap hari — membangun website dan merancang tampilan yang rapi, cepat, dan nyaman dipakai.</p>
+            <ul class="hero__badges">
+              <li class="badge">
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+                <span data-i18n="hero.badgeDev">Developer</span>
+              </li>
+              <li class="badge">
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+                <span data-i18n="hero.badgeDesign">Designer</span>
+              </li>
+              <li class="badge">
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11h4M8 9v4M15.5 12.5h.01M18 10.5h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
+                <span data-i18n="hero.badgeGamer">Gamer</span>
+              </li>
+            </ul>
+            <div class="hero__actions">
+              <a class="btn btn--light" href="#project" data-i18n="hero.ctaProjects">Lihat Project</a>
+              <a class="btn btn--outline-light" href="#kontak" data-i18n="hero.ctaContact">Hubungi Saya</a>
+            </div>
+          </div>
+
+          <div class="hero__photo">
+            <!-- GANTI: assets/img/foto-nanda.png dengan fotomu (PNG transparan paling bagus) -->
+            <img src="assets/img/foto-nanda.png" alt="Foto Nanda" width="640" height="840">
+          </div>
+
+          <div class="hero__dashes" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TENTANG ===================== -->
+    <section class="section about" id="tentang">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">Tentang</p>
+          <h2 data-i18n="about.title">Siswa yang tumbuh setiap hari</h2>
+        </div>
+        <div class="about__text reveal">
+          <p data-i18n="about.p1">Hai, saya Nanda — seorang siswa yang percaya bahwa versi terbaik dari diri kita dibangun lewat langkah kecil yang konsisten. Saya senang mengubah ide menjadi produk nyata: mulai dari sistem manajemen, tampilan yang bersih, sampai detail kecil yang bikin pengalaman terasa menyenangkan.</p>
+          <p data-i18n="about.p2">Di luar coding dan desain, saya seorang gamer. Bermain bukan sekadar hobi — dari sana saya belajar strategi, ketekunan, dan cara melihat masalah dari sudut yang tidak terduga. Tiga hal itu yang saya bawa ke setiap project.</p>
+        </div>
+        <div class="about__cards">
+          <article class="identity-card reveal" data-tilt="4">
+            <div class="identity-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+            </div>
+            <h3 data-i18n="about.dev.title">Developer</h3>
+            <p data-i18n="about.dev.desc">Membangun website dan aplikasi web yang cepat, responsif, dan mudah digunakan.</p>
+          </article>
+          <article class="identity-card reveal" data-tilt="4">
+            <div class="identity-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+            </div>
+            <h3 data-i18n="about.design.title">Designer</h3>
+            <p data-i18n="about.design.desc">Merancang antarmuka yang bersih dan konsisten — dari wireframe sampai siap dikoding.</p>
+          </article>
+          <article class="identity-card reveal" data-tilt="4">
+            <div class="identity-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11h4M8 9v4M15.5 12.5h.01M18 10.5h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
+            </div>
+            <h3 data-i18n="about.gamer.title">Gamer</h3>
+            <p data-i18n="about.gamer.desc">Strategi, ketekunan, dan refleks dari gaming yang saya bawa ke dunia kerja.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECT ===================== -->
+    <section class="section projects" id="project">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow" data-i18n="projects.eyebrow">Project</p>
+          <h2 data-i18n="projects.title">Karya yang saya bangun</h2>
+          <p class="section__sub" data-i18n="projects.subtitle">Beberapa project pilihan yang saya kerjakan dari nol — dari desain sampai kode.</p>
+        </div>
+
+        <div class="projects__list">
+          <!-- ============ PROJECT 1: NexPrint ============
+               Mau tambah project baru? Copy satu blok <article class="project">
+               di bawah, lalu ganti gambar & teksnya. -->
+          <article class="project reveal">
+            <div class="project__media">
+              <div class="project__frame" data-tilt="3">
+                <div class="project__bar" aria-hidden="true"><span></span><span></span><span></span><em>nexprint</em></div>
+                <div class="project__shot">
+                  <!-- GANTI: assets/img/nexprint.png dengan screenshot project kamu -->
+                  <img src="assets/img/nexprint.png" alt="Screenshot project NexPrint" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+            <div class="project__info">
+              <span class="project__tag" data-i18n="p1.tag">Sistem Manajemen Fashion</span>
+              <h3 class="project__title">NexPrint</h3>
+              <p class="project__desc" data-i18n="p1.desc">Aplikasi manajemen untuk bisnis fashion — mengelola produk, stok, dan pesanan dalam satu dasbor yang ringkas dan mudah dipakai.</p>
+              <ul class="project__points">
+                <li data-i18n="p1.point1">Kelola produk &amp; stok dengan rapi</li>
+                <li data-i18n="p1.point2">Alur pesanan yang jelas dan tertata</li>
+                <li data-i18n="p1.point3">Dasbor sederhana untuk pengguna baru</li>
+              </ul>
+              <ul class="project__tech" aria-label="Teknologi">
+                <!-- GANTI: sesuaikan dengan teknologi yang kamu pakai -->
+                <li>HTML</li><li>CSS</li><li>JavaScript</li>
+              </ul>
+              <!-- GANTI: link demo / GitHub project -->
+              <a class="btn btn--ghost btn--sm" href="https://github.com/usernamekamu" target="_blank" rel="noopener">
+                <span data-i18n="p1.link">Lihat Project</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- ============ PROJECT 2: BeautyCare ============ -->
+          <article class="project reveal">
+            <div class="project__media">
+              <div class="project__frame" data-tilt="3">
+                <div class="project__bar" aria-hidden="true"><span></span><span></span><span></span><em>beautycare</em></div>
+                <div class="project__shot">
+                  <img src="assets/img/beautycare-landing.png" alt="Halaman landing BeautyCare" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <!-- Galeri screenshot: klik untuk ganti gambar utama.
+                   Mau tambah gambar? Copy satu <button class="project__thumb"> di bawah. -->
+              <div class="project__thumbs" role="group" aria-label="Galeri screenshot BeautyCare">
+                <button type="button" class="project__thumb is-active" data-src="assets/img/beautycare-landing.png" data-alt="Halaman landing BeautyCare" aria-pressed="true">
+                  <img src="assets/img/beautycare-landing-thumb.png" alt="Landing page" loading="lazy" decoding="async">
+                </button>
+                <button type="button" class="project__thumb" data-src="assets/img/beautycare-login.png" data-alt="Halaman login BeautyCare" aria-pressed="false">
+                  <img src="assets/img/beautycare-login-thumb.png" alt="Login" loading="lazy" decoding="async">
+                </button>
+                <button type="button" class="project__thumb" data-src="assets/img/beautycare-dashboard.png" data-alt="Dashboard admin BeautyCare" aria-pressed="false">
+                  <img src="assets/img/beautycare-dashboard-thumb.png" alt="Dashboard admin" loading="lazy" decoding="async">
+                </button>
+              </div>
+            </div>
+            <div class="project__info">
+              <span class="project__tag" data-i18n="p2.tag">Sistem Manajemen Kecantikan</span>
+              <h3 class="project__title">BeautyCare</h3>
+              <p class="project__desc" data-i18n="p2.desc">Aplikasi untuk mengelola layanan beauty care — jadwal, pelanggan, dan layanan dalam satu tempat yang tertata.</p>
+              <ul class="project__points">
+                <li data-i18n="p2.point1">Jadwal layanan tanpa bentrok</li>
+                <li data-i18n="p2.point2">Data pelanggan tersimpan rapi</li>
+                <li data-i18n="p2.point3">Ringkasan layanan dalam satu tampilan</li>
+              </ul>
+              <ul class="project__tech" aria-label="Teknologi">
+                <!-- GANTI: sesuaikan dengan teknologi yang kamu pakai -->
+                <li>HTML</li><li>CSS</li><li>JavaScript</li>
+              </ul>
+              <!-- GANTI: link demo / GitHub project -->
+              <a class="btn btn--ghost btn--sm" href="https://github.com/usernamekamu" target="_blank" rel="noopener">
+                <span data-i18n="p2.link">Lihat Project</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT BARU: "Warung Ibu" — tinggal tambah blok <article class="project"> di sini saat sudah siap. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LAYANAN ===================== -->
+    <section class="section services" id="layanan">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow" data-i18n="services.eyebrow">Layanan</p>
+          <h2 data-i18n="services.title">Yang bisa saya bantu</h2>
+          <p class="section__sub" data-i18n="services.subtitle">Untuk kamu yang butuh website atau tampilan yang lebih rapi — dari pribadi sampai usaha kecil.</p>
+        </div>
+        <div class="services__grid">
+          <article class="service-card reveal" data-tilt="4">
+            <div class="identity-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="3"/><path d="M8 21h8M12 18v3"/></svg>
+            </div>
+            <h3 data-i18n="s1.title">Pengembangan Web</h3>
+            <p data-i18n="s1.desc">Website company profile, landing page, atau aplikasi web sederhana yang cepat dan responsif.</p>
+          </article>
+          <article class="service-card reveal" data-tilt="4">
+            <div class="identity-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            </div>
+            <h3 data-i18n="s2.title">Desain UI</h3>
+            <p data-i18n="s2.desc">Desain antarmuka yang bersih dan konsisten untuk website maupun aplikasi kamu.</p>
+          </article>
+          <article class="service-card reveal" data-tilt="4">
+            <div class="identity-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0 6 6L21 21l-3 0-9.3-9.3a4.5 4.5 0 0 1-6-6L6.3 2l3-3"/></svg>
+            </div>
+            <h3 data-i18n="s3.title">Perbaikan &amp; Optimasi</h3>
+            <p data-i18n="s3.desc">Merapikan tampilan yang berantakan, mempercepat loading, dan membenahi kode.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="skills__panel reveal">
+          <div class="section__head">
+            <p class="eyebrow" data-i18n="skills.eyebrow">Keahlian</p>
+            <h2 data-i18n="skills.title">Alat &amp; keahlian</h2>
+            <p class="section__sub" data-i18n="skills.subtitle">Alat dan keahlian yang saya pakai sehari-hari.</p>
+          </div>
+          <div class="skills__groups">
+            <div class="skills__group">
+              <h3 data-i18n="skills.dev">Development</h3>
+              <ul class="skills__list">
+                <li class="chip">HTML</li>
+                <li class="chip">CSS</li>
+                <li class="chip">JavaScript</li>
+                <li class="chip">Responsive Web</li>
+                <li class="chip">Git &amp; GitHub</li>
+              </ul>
+            </div>
+            <div class="skills__group">
+              <h3 data-i18n="skills.design">Design</h3>
+              <ul class="skills__list">
+                <li class="chip">Figma</li>
+                <li class="chip">UI Design</li>
+                <li class="chip">Wireframing</li>
+                <li class="chip">Typography</li>
+                <li class="chip">Canva</li>
+              </ul>
+            </div>
+            <div class="skills__group">
+              <h3 data-i18n="skills.tools">Tools</h3>
+              <ul class="skills__list">
+                <li class="chip">VS Code</li>
+                <li class="chip">GitHub</li>
+                <li class="chip">Chrome DevTools</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== KONTAK ===================== -->
+    <section class="section contact" id="kontak">
+      <div class="container">
+        <div class="section__head section__head--center reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Kontak</p>
+          <h2 data-i18n="contact.title">Mari bekerja sama</h2>
+          <p class="section__sub" data-i18n="contact.subtitle">Punya ide project, butuh website, atau sekadar ingin menyapa? Kirim pesan lewat salah satu kanal di bawah.</p>
+        </div>
+
+        <div class="contact__cards">
+          <!-- GANTI: nomor WhatsApp kamu (format internasional tanpa +, contoh: 6281234567890) -->
+          <a class="contact-card reveal" data-tilt="4" href="https://wa.me/6281234567890" target="_blank" rel="noopener">
+            <span class="contact-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <span class="contact-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            </span>
+            <h3 data-i18n="c1.title">WhatsApp</h3>
+            <p data-i18n="c1.desc">Obrolan cepat soal project, tanya-tanya, atau kolaborasi. Paling enak lewat sini.</p>
+          </a>
+
+          <!-- GANTI: username GitHub kamu -->
+          <a class="contact-card reveal" data-tilt="4" href="https://github.com/usernamekamu" target="_blank" rel="noopener">
+            <span class="contact-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <span class="contact-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            </span>
+            <h3 data-i18n="c2.title">GitHub</h3>
+            <p data-i18n="c2.desc">Intip kode dan eksperimen saya di GitHub.</p>
+          </a>
+
+          <!-- GANTI: alamat email kamu -->
+          <a class="contact-card reveal" data-tilt="4" href="mailto:emailkamu@gmail.com">
+            <span class="contact-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <span class="contact-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg>
+            </span>
+            <h3 data-i18n="c3.title">Email</h3>
+            <p data-i18n="c3.desc">Untuk penawaran kerja sama dan hal-hal formal.</p>
+          </a>
+        </div>
+
+        <div class="contact__cta gradient-card reveal">
+          <div class="sparkles" aria-hidden="true">
+            <svg class="sparkle sparkle--1" viewBox="0 0 24 24"><path d="M12 1.6l2.1 8.3 8.3 2.1-8.3 2.1L12 22.4l-2.1-8.3L1.6 12l8.3-2.1z"/></svg>
+            <svg class="sparkle sparkle--3" viewBox="0 0 24 24"><path d="M12 1.6l2.1 8.3 8.3 2.1-8.3 2.1L12 22.4l-2.1-8.3L1.6 12l8.3-2.1z"/></svg>
+          </div>
+          <h3 data-i18n="cta.title">Mari wujudkan ide kamu</h3>
+          <p data-i18n="cta.text">Ceritakan project kamu — saya siap membantu dari obrolan pertama sampai selesai.</p>
+          <div class="contact__cta-actions">
+            <a class="btn btn--light" href="https://wa.me/6281234567890" target="_blank" rel="noopener" data-i18n="cta.wa">Chat via WhatsApp</a>
+            <a class="btn btn--outline-light" href="mailto:emailkamu@gmail.com" data-i18n="cta.mail">Kirim Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <svg class="logo-mark logo-mark--sm" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect class="logo-bg" x="1" y="1" width="62" height="62" rx="18"/>
+          <path class="logo-line" d="M21 45V19l22 26V19"/>
+          <circle class="logo-dot" cx="21" cy="19" r="3.2"/>
+          <circle class="logo-dot" cx="21" cy="45" r="3.2"/>
+          <circle class="logo-dot" cx="43" cy="19" r="3.2"/>
+          <circle class="logo-dot" cx="43" cy="45" r="3.2"/>
+        </svg>
+        <span>Nanda</span>
+      </div>
+      <p class="footer__text">© <span id="year">2026</span> Nanda — <span data-i18n="footer.rights">Dirancang &amp; dibangun sendiri dengan HTML, CSS &amp; JavaScript.</span></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

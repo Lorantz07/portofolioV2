@@ -1,0 +1,18 @@
+# Windows
+Thumbs.db
+Desktop.ini
+*.lnk
+
+# macOS
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-*
+
+# Log & file sementara
+*.log
+*.tmp
+*~
