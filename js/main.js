@@ -47,6 +47,7 @@
       'a11y.slide1': 'Slide 1',
       'a11y.slide2': 'Slide 2',
       'a11y.slide3': 'Slide 3',
+      'a11y.top': 'Kembali ke atas',
 
       'about.eyebrow': 'Tentang',
       'about.title': 'Siswa yang tumbuh setiap hari',
@@ -164,6 +165,7 @@
       'a11y.slide1': 'Slide 1',
       'a11y.slide2': 'Slide 2',
       'a11y.slide3': 'Slide 3',
+      'a11y.top': 'Back to top',
 
       'about.eyebrow': 'About',
       'about.title': 'A student who grows every day',
@@ -247,14 +249,23 @@
 
   /* ---------- Tema ---------- */
   var themeToggle = document.getElementById('theme-toggle');
+  var metaTheme = document.getElementById('meta-theme');
+  function syncMetaTheme() {
+    if (metaTheme) {
+      metaTheme.setAttribute('content',
+        root.getAttribute('data-theme') === 'dark' ? '#0E1225' : '#F4F2F9');
+    }
+  }
   if (!root.getAttribute('data-theme')) {
     root.setAttribute('data-theme',
       window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   }
+  syncMetaTheme();
   if (themeToggle) {
     themeToggle.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
+      syncMetaTheme();
       try { localStorage.setItem('nanda-theme', next); } catch (e) {}
     });
   }
@@ -291,6 +302,7 @@
 
   /* ---------- Progress bar + nav scrolled ---------- */
   var progressFill = document.querySelector('.progress__fill');
+  var toTop = document.getElementById('to-top');
   var ticking = false;
   function onScroll() {
     if (ticking) return;
@@ -301,11 +313,17 @@
       var ratio = max > 0 ? doc.scrollTop / max : 0;
       if (progressFill) progressFill.style.transform = 'scaleX(' + ratio + ')';
       document.body.classList.toggle('is-scrolled', doc.scrollTop > 8);
+      if (toTop) toTop.classList.toggle('is-visible', doc.scrollTop > 600);
       ticking = false;
     });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+  if (toTop) {
+    toTop.addEventListener('click', function () {
+      window.scrollTo(0, 0);
+    });
+  }
 
   /* ---------- Anti-geser navbar (bug browser mobile) ----------
      Di sebagian browser mobile (mis. iOS 26) elemen fixed bergeser naik
@@ -356,9 +374,11 @@
   /* ---------- Mobile nav ---------- */
   var burger = document.getElementById('nav-burger');
   var navMenu = document.getElementById('nav-menu');
+  var navBackdrop = document.getElementById('nav-backdrop');
   function closeMenu() {
     if (!navMenu) return;
     navMenu.classList.remove('is-open');
+    if (navBackdrop) navBackdrop.classList.remove('is-open');
     if (burger) {
       burger.classList.remove('is-active');
       burger.setAttribute('aria-expanded', 'false');
@@ -369,6 +389,7 @@
       var open = navMenu.classList.toggle('is-open');
       burger.classList.toggle('is-active', open);
       burger.setAttribute('aria-expanded', String(open));
+      if (navBackdrop) navBackdrop.classList.toggle('is-open', open);
     });
     navMenu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', closeMenu);
@@ -376,6 +397,11 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
     });
+    if (navBackdrop) navBackdrop.addEventListener('click', closeMenu);
+    var desktopMq = window.matchMedia('(min-width: 901px)');
+    var onMqChange = function (e) { if (e.matches) closeMenu(); };
+    if (desktopMq.addEventListener) desktopMq.addEventListener('change', onMqChange);
+    else if (desktopMq.addListener) desktopMq.addListener(onMqChange);
   }
 
   /* ---------- Hero carousel ---------- */
