@@ -120,6 +120,11 @@
           <div class="hero__carousel" role="region" aria-roledescription="carousel" aria-label="Sorotan" data-i18n-aria="a11y.carousel">
             <div class="hero__slides" id="hero-slides">
               <div class="hero__slide is-active">
+                <!-- Status ketersediaan: hapus <p class="hero__available"> di bawah kalau kamu sedang penuh / tidak menerima proyek baru -->
+                <p class="hero__available">
+                  <span class="hero__dot" aria-hidden="true"></span>
+                  <span data-i18n="hero.available">Tersedia untuk proyek baru</span>
+                </p>
                 <p class="hero__eyebrow" data-i18n="hero.greeting">Halo, saya</p>
                 <h1 class="hero__name">Nanda</h1>
                 <p class="hero__tagline" data-i18n="hero.tagline">Siswa yang tumbuh setiap hari — membangun website dan merancang tampilan yang rapi, cepat, dan nyaman dipakai.</p>
@@ -257,13 +262,20 @@
               </div>
             </div>
             <div class="project__info">
-              <span class="project__tag" data-i18n="p1.tag">Sistem Manajemen Fashion</span>
+              <div class="project__meta">
+                <span class="project__tag" data-i18n="p1.tag">Toko Fashion Online</span>
+                <span class="project__time">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  <span data-i18n="p1.time">± 1 bulan</span>
+                </span>
+              </div>
               <h3 class="project__title">NexPrint</h3>
-              <p class="project__desc" data-i18n="p1.desc">Aplikasi manajemen untuk bisnis fashion — mengelola produk, stok, dan pesanan dalam satu dasbor yang ringkas dan mudah dipakai. Dibangun dengan Laravel 12.</p>
-              <ul class="project__points">
-                <li data-i18n="p1.point1">Kelola produk &amp; stok dengan rapi</li>
-                <li data-i18n="p1.point2">Alur pesanan yang jelas dan tertata</li>
-                <li data-i18n="p1.point3">Dasbor sederhana untuk pengguna baru</li>
+              <p class="project__desc" data-i18n="p1.desc">Toko fashion online — dari katalog dan keranjang belanja sampai panel admin, semua rapi dalam satu sistem.</p>
+              <!-- GANTI: cerita project — Latar / Dikerjakan / Hasil -->
+              <ul class="project__case">
+                <li><strong data-i18n="proj.context">Latar</strong><span data-i18n="p1.case1">Butuh toko online untuk jualan fashion — tampil profesional dan gampang dikelola.</span></li>
+                <li><strong data-i18n="proj.work">Dikerjakan</strong><span data-i18n="p1.case2">Katalog produk, halaman detail, keranjang belanja, sampai panel admin pengelolaan produk.</span></li>
+                <li><strong data-i18n="proj.result">Hasil</strong><span data-i18n="p1.case3">Toko online yang responsif — pembeli bisa berbelanja nyaman, termasuk dari HP.</span></li>
               </ul>
               <ul class="project__tech" aria-label="Teknologi">
                 <li>Laravel 12</li><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
@@ -300,13 +312,20 @@
               </div>
             </div>
             <div class="project__info">
-              <span class="project__tag" data-i18n="p2.tag">Sistem Manajemen Kecantikan</span>
+              <div class="project__meta">
+                <span class="project__tag" data-i18n="p2.tag">Sistem Manajemen Kecantikan</span>
+                <span class="project__time">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  <span data-i18n="p2.time">± 1 bulan</span>
+                </span>
+              </div>
               <h3 class="project__title">BeautyCare</h3>
-              <p class="project__desc" data-i18n="p2.desc">Aplikasi untuk mengelola layanan beauty care — jadwal, pelanggan, dan layanan dalam satu tempat yang tertata. Dibangun dengan Laravel 12.</p>
-              <ul class="project__points">
-                <li data-i18n="p2.point1">Jadwal layanan tanpa bentrok</li>
-                <li data-i18n="p2.point2">Data pelanggan tersimpan rapi</li>
-                <li data-i18n="p2.point3">Ringkasan layanan dalam satu tampilan</li>
+              <p class="project__desc" data-i18n="p2.desc">Aplikasi manajemen salon — pemesanan layanan dan penjualan produk perawatan, semua tertata di satu tempat.</p>
+              <!-- GANTI: cerita project — Latar / Dikerjakan / Hasil -->
+              <ul class="project__case">
+                <li><strong data-i18n="proj.context">Latar</strong><span data-i18n="p2.case1">Salon butuh satu aplikasi untuk menerima pemesanan layanan sekaligus penjualan produk perawatan.</span></li>
+                <li><strong data-i18n="proj.work">Dikerjakan</strong><span data-i18n="p2.case2">Daftar layanan &amp; produk, sistem pemesanan, autentikasi pengguna, dan dashboard pengelolaan.</span></li>
+                <li><strong data-i18n="proj.result">Hasil</strong><span data-i18n="p2.case3">Operasional salon lebih tertata — pelanggan pesan layanan dan beli produk langsung dari web.</span></li>
               </ul>
               <ul class="project__tech" aria-label="Teknologi">
                 <li>Laravel 12</li><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
@@ -401,6 +420,67 @@
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONI (NONAKTIF) =====================
+         Section ini sengaja disembunyikan karena belum ada testimoni asli.
+         Cara mengaktifkan (detail di README.md poin 6):
+         1. Hapus kata "hidden" pada tag section di bawah ini
+         2. Ganti semua teks bertanda GANTI dengan kutipan ASLI dari orang
+            yang pernah kamu bantu — jangan yang karangan, ya
+         3. Sinkronkan versi ID/EN-nya di js/main.js bagian 'testi.*' -->
+    <section class="section" id="testimoni" hidden>
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow" data-i18n="testi.eyebrow">Kata mereka</p>
+          <h2 data-i18n="testi.title">Testimoni</h2>
+          <p class="section__sub" data-i18n="testi.subtitle">Cerita dari orang yang pernah saya bantu.</p>
+        </div>
+        <div class="testi__grid">
+          <figure class="testi-card reveal">
+            <span class="testi-card__mark" aria-hidden="true">&ldquo;</span>
+            <!-- GANTI: kutipan asli #1 -->
+            <blockquote class="testi-card__quote" data-i18n="testi.1.quote">GANTI: tulis kutipan asli #1 di sini.</blockquote>
+            <figcaption class="testi-card__who">
+              <span class="testi-card__avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="testi-card__meta">
+                <strong data-i18n="testi.1.name">Nama Klien</strong>
+                <em data-i18n="testi.1.role">Peran / usaha</em>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="testi-card reveal">
+            <span class="testi-card__mark" aria-hidden="true">&ldquo;</span>
+            <!-- GANTI: kutipan asli #2 -->
+            <blockquote class="testi-card__quote" data-i18n="testi.2.quote">GANTI: tulis kutipan asli #2 di sini.</blockquote>
+            <figcaption class="testi-card__who">
+              <span class="testi-card__avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="testi-card__meta">
+                <strong data-i18n="testi.2.name">Nama Klien</strong>
+                <em data-i18n="testi.2.role">Peran / usaha</em>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="testi-card reveal">
+            <span class="testi-card__mark" aria-hidden="true">&ldquo;</span>
+            <!-- GANTI: kutipan asli #3 -->
+            <blockquote class="testi-card__quote" data-i18n="testi.3.quote">GANTI: tulis kutipan asli #3 di sini.</blockquote>
+            <figcaption class="testi-card__who">
+              <span class="testi-card__avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <span class="testi-card__meta">
+                <strong data-i18n="testi.3.name">Nama Klien</strong>
+                <em data-i18n="testi.3.role">Peran / usaha</em>
+              </span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
