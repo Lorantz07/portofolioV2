@@ -87,43 +87,88 @@
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="beranda">
       <div class="container">
-        <div class="hero__card gradient-card reveal">
+        <div class="hero__card gradient-card reveal" data-slide="0">
           <div class="sparkles" aria-hidden="true">
             <svg class="sparkle sparkle--1" viewBox="0 0 24 24"><path d="M12 1.6l2.1 8.3 8.3 2.1-8.3 2.1L12 22.4l-2.1-8.3L1.6 12l8.3-2.1z"/></svg>
             <svg class="sparkle sparkle--2" viewBox="0 0 24 24"><path d="M12 1.6l2.1 8.3 8.3 2.1-8.3 2.1L12 22.4l-2.1-8.3L1.6 12l8.3-2.1z"/></svg>
             <svg class="sparkle sparkle--3" viewBox="0 0 24 24"><path d="M12 1.6l2.1 8.3 8.3 2.1-8.3 2.1L12 22.4l-2.1-8.3L1.6 12l8.3-2.1z"/></svg>
           </div>
 
-          <div class="hero__content">
-            <p class="hero__eyebrow" data-i18n="hero.greeting">Halo, saya</p>
-            <h1 class="hero__name">Nanda</h1>
-            <p class="hero__tagline" data-i18n="hero.tagline">Siswa yang tumbuh setiap hari — membangun website dan merancang tampilan yang rapi, cepat, dan nyaman dipakai.</p>
-            <ul class="hero__badges">
-              <li class="badge">
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
-                <span data-i18n="hero.badgeDev">Developer</span>
-              </li>
-              <li class="badge">
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
-                <span data-i18n="hero.badgeDesign">Designer</span>
-              </li>
-              <li class="badge">
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11h4M8 9v4M15.5 12.5h.01M18 10.5h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
-                <span data-i18n="hero.badgeGamer">Gamer</span>
-              </li>
-            </ul>
-            <div class="hero__actions">
-              <a class="btn btn--light" href="#project" data-i18n="hero.ctaProjects">Lihat Project</a>
-              <a class="btn btn--outline-light" href="#kontak" data-i18n="hero.ctaContact">Hubungi Saya</a>
+          <div class="hero__carousel" role="region" aria-roledescription="carousel" aria-label="Sorotan" data-i18n-aria="a11y.carousel">
+            <div class="hero__slides" id="hero-slides">
+              <div class="hero__slide is-active">
+                <p class="hero__eyebrow" data-i18n="hero.greeting">Halo, saya</p>
+                <h1 class="hero__name">Nanda</h1>
+                <p class="hero__tagline" data-i18n="hero.tagline">Siswa yang tumbuh setiap hari — membangun website dan merancang tampilan yang rapi, cepat, dan nyaman dipakai.</p>
+                <ul class="hero__badges">
+                  <li class="badge">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+                    <span data-i18n="hero.badgeDev">Developer</span>
+                  </li>
+                  <li class="badge">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+                    <span data-i18n="hero.badgeDesign">Designer</span>
+                  </li>
+                  <li class="badge">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11h4M8 9v4M15.5 12.5h.01M18 10.5h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
+                    <span data-i18n="hero.badgeGamer">Gamer</span>
+                  </li>
+                </ul>
+                <div class="hero__actions">
+                  <a class="btn btn--light" href="#project" data-i18n="hero.ctaProjects">Lihat Project</a>
+                  <a class="btn btn--outline-light" href="#kontak" data-i18n="hero.ctaContact">Hubungi Saya</a>
+                </div>
+              </div>
+
+              <div class="hero__slide">
+                <p class="hero__eyebrow" data-i18n="hero.slide2.eyebrow">Terbuka untuk project</p>
+                <h2 class="hero__name hero__name--sm" data-i18n="hero.slide2.title">Butuh website?</h2>
+                <p class="hero__tagline" data-i18n="hero.slide2.tagline">Saya bantu dari desain sampai jadi — landing page, company profile, atau aplikasi web sederhana. Respon cepat, hasil rapi.</p>
+                <ul class="hero__badges">
+                  <li class="badge"><span data-i18n="s1.title">Pengembangan Web</span></li>
+                  <li class="badge"><span data-i18n="s2.title">Desain UI</span></li>
+                  <li class="badge"><span data-i18n="s3.title">Perbaikan &amp; Optimasi</span></li>
+                </ul>
+                <div class="hero__actions">
+                  <a class="btn btn--light" href="https://wa.me/6281234567890" target="_blank" rel="noopener" data-i18n="cta.wa">Chat via WhatsApp</a>
+                  <a class="btn btn--outline-light" href="#layanan" data-i18n="hero.slide2.secondary">Lihat Layanan</a>
+                </div>
+              </div>
+
+              <div class="hero__slide">
+                <p class="hero__eyebrow" data-i18n="hero.slide3.eyebrow">Cara kerja sama</p>
+                <h2 class="hero__name hero__name--sm" data-i18n="hero.slide3.title">Dari ide, jadi kenyataan</h2>
+                <p class="hero__tagline" data-i18n="hero.slide3.tagline">Simpel, tanpa ribet. Kamu cukup cerita idenya, saya yang urus dari desain sampai jadi.</p>
+                <ul class="hero__badges">
+                  <li class="badge"><span data-i18n="hero.slide3.step1">1. Cerita idemu</span></li>
+                  <li class="badge"><span data-i18n="hero.slide3.step2">2. Saya kerjakan</span></li>
+                  <li class="badge"><span data-i18n="hero.slide3.step3">3. Revisi &amp; serah terima</span></li>
+                </ul>
+                <div class="hero__actions">
+                  <a class="btn btn--light" href="https://wa.me/6281234567890" target="_blank" rel="noopener" data-i18n="hero.slide3.cta">Mulai Obrolan</a>
+                  <a class="btn btn--outline-light" href="#layanan" data-i18n="hero.slide2.secondary">Lihat Layanan</a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="hero__photo">
+          <div class="hero__visual">
             <!-- GANTI: assets/img/foto-nanda.png dengan fotomu (PNG transparan paling bagus) -->
-            <img src="assets/img/foto-nanda.png" alt="Foto Nanda" width="640" height="840">
+            <img class="hero__photo-img" src="assets/img/foto-nanda.png" alt="Foto Nanda" width="640" height="840">
           </div>
 
-          <div class="hero__dashes" aria-hidden="true"><span></span><span></span><span></span></div>
+          <button class="hero__arrow hero__arrow--prev" type="button" data-i18n-aria="a11y.prev" aria-label="Slide sebelumnya">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <button class="hero__arrow hero__arrow--next" type="button" data-i18n-aria="a11y.next" aria-label="Slide berikutnya">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+
+          <div class="hero__dashes">
+            <button class="hero__dash is-active" type="button" data-i18n-aria="a11y.slide1" aria-label="Slide 1"></button>
+            <button class="hero__dash" type="button" data-i18n-aria="a11y.slide2" aria-label="Slide 2"></button>
+            <button class="hero__dash" type="button" data-i18n-aria="a11y.slide3" aria-label="Slide 3"></button>
+          </div>
         </div>
       </div>
     </section>
@@ -191,15 +236,14 @@
             <div class="project__info">
               <span class="project__tag" data-i18n="p1.tag">Sistem Manajemen Fashion</span>
               <h3 class="project__title">NexPrint</h3>
-              <p class="project__desc" data-i18n="p1.desc">Aplikasi manajemen untuk bisnis fashion — mengelola produk, stok, dan pesanan dalam satu dasbor yang ringkas dan mudah dipakai.</p>
+              <p class="project__desc" data-i18n="p1.desc">Aplikasi manajemen untuk bisnis fashion — mengelola produk, stok, dan pesanan dalam satu dasbor yang ringkas dan mudah dipakai. Dibangun dengan Laravel 12.</p>
               <ul class="project__points">
                 <li data-i18n="p1.point1">Kelola produk &amp; stok dengan rapi</li>
                 <li data-i18n="p1.point2">Alur pesanan yang jelas dan tertata</li>
                 <li data-i18n="p1.point3">Dasbor sederhana untuk pengguna baru</li>
               </ul>
               <ul class="project__tech" aria-label="Teknologi">
-                <!-- GANTI: sesuaikan dengan teknologi yang kamu pakai -->
-                <li>HTML</li><li>CSS</li><li>JavaScript</li>
+                <li>Laravel 12</li><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
               </ul>
               <!-- GANTI: link demo / GitHub project -->
               <a class="btn btn--ghost btn--sm" href="https://github.com/usernamekamu" target="_blank" rel="noopener">
@@ -235,15 +279,14 @@
             <div class="project__info">
               <span class="project__tag" data-i18n="p2.tag">Sistem Manajemen Kecantikan</span>
               <h3 class="project__title">BeautyCare</h3>
-              <p class="project__desc" data-i18n="p2.desc">Aplikasi untuk mengelola layanan beauty care — jadwal, pelanggan, dan layanan dalam satu tempat yang tertata.</p>
+              <p class="project__desc" data-i18n="p2.desc">Aplikasi untuk mengelola layanan beauty care — jadwal, pelanggan, dan layanan dalam satu tempat yang tertata. Dibangun dengan Laravel 12.</p>
               <ul class="project__points">
                 <li data-i18n="p2.point1">Jadwal layanan tanpa bentrok</li>
                 <li data-i18n="p2.point2">Data pelanggan tersimpan rapi</li>
                 <li data-i18n="p2.point3">Ringkasan layanan dalam satu tampilan</li>
               </ul>
               <ul class="project__tech" aria-label="Teknologi">
-                <!-- GANTI: sesuaikan dengan teknologi yang kamu pakai -->
-                <li>HTML</li><li>CSS</li><li>JavaScript</li>
+                <li>Laravel 12</li><li>PHP</li><li>MySQL</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
               </ul>
               <!-- GANTI: link demo / GitHub project -->
               <a class="btn btn--ghost btn--sm" href="https://github.com/usernamekamu" target="_blank" rel="noopener">
@@ -305,9 +348,12 @@
             <div class="skills__group">
               <h3 data-i18n="skills.dev">Development</h3>
               <ul class="skills__list">
+                <li class="chip">Laravel 12</li>
+                <li class="chip">PHP</li>
+                <li class="chip">MySQL</li>
+                <li class="chip">JavaScript</li>
                 <li class="chip">HTML</li>
                 <li class="chip">CSS</li>
-                <li class="chip">JavaScript</li>
                 <li class="chip">Responsive Web</li>
                 <li class="chip">Git &amp; GitHub</li>
               </ul>
@@ -327,6 +373,7 @@
               <ul class="skills__list">
                 <li class="chip">VS Code</li>
                 <li class="chip">GitHub</li>
+                <li class="chip">Composer</li>
                 <li class="chip">Chrome DevTools</li>
               </ul>
             </div>
