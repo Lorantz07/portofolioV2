@@ -418,7 +418,12 @@ body.is-scrolled .nav {
   align-items: center;
   padding: clamp(36px, 6vw, 72px);
 }
-.hero__content { position: relative; z-index: 2; max-width: min(56ch, 58%); color: #F7F8FE; }
+.hero__carousel { position: relative; z-index: 2; max-width: min(56ch, 58%); min-width: 0; overflow: hidden; }
+.hero__slides { display: flex; transition: transform .55s cubic-bezier(.22, .61, .36, 1); touch-action: pan-y; cursor: grab; }
+.hero__slides.is-dragging { transition: none; cursor: grabbing; }
+.hero__card.is-dragging { user-select: none; -webkit-user-select: none; }
+.hero__slide { flex: 0 0 100%; min-width: 0; display: flex; flex-direction: column; justify-content: center; color: #F7F8FE; }
+.hero__name--sm { font-size: clamp(2.2rem, 5vw, 3.2rem); }
 .hero__eyebrow {
   display: inline-flex;
   align-items: center;
@@ -459,37 +464,63 @@ body.is-scrolled .nav {
 .badge svg { width: 14px; height: 14px; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
-.hero__photo {
+.hero__visual {
   position: absolute;
   right: clamp(10px, 5vw, 70px);
   bottom: -22px;
   z-index: 1;
   pointer-events: none;
+  display: grid;
+  animation: float 6.5s ease-in-out infinite;
 }
-.hero__photo img {
+.hero__visual > * {
+  grid-area: 1 / 1;
+  justify-self: end;
+  align-self: end;
+}
+.hero__photo-img {
   height: clamp(280px, 40vw, 440px);
   width: auto;
   filter: drop-shadow(0 30px 40px rgba(28, 34, 66, .35));
-  animation: float 6.5s ease-in-out infinite;
 }
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
 
-.hero__dashes {
+.hero__arrow {
   position: absolute;
-  left: clamp(36px, 6vw, 72px);
-  bottom: 24px;
-  display: flex;
-  gap: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 255, 255, .3);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color .25s ease, transform .25s ease;
 }
-.hero__dashes span {
-  width: 26px; height: 4px;
+.hero__arrow:hover { background: rgba(255, 255, 255, .3); }
+.hero__arrow:active { transform: translateY(-50%) scale(.94); }
+.hero__arrow svg { width: 20px; height: 20px; }
+.hero__arrow--prev { left: 16px; }
+.hero__arrow--next { right: 16px; }
+
+.hero__dashes { position: absolute; left: clamp(36px, 6vw, 72px); bottom: 18px; z-index: 5; display: flex; gap: 7px; }
+.hero__dash {
+  width: 26px; height: 24px;
+  padding: 10px 0;
+  background-clip: content-box;
   border-radius: 3px;
-  background: rgba(255, 255, 255, .35);
+  background-color: rgba(255, 255, 255, .35);
+  transition: width .3s ease, background-color .3s ease;
 }
-.hero__dashes span:first-child { width: 34px; background: rgba(255, 255, 255, .92); }
+.hero__dash:hover { background-color: rgba(255, 255, 255, .6); }
+.hero__dash.is-active { width: 34px; background-color: rgba(255, 255, 255, .92); }
 
 /* ---------- About ---------- */
 .about__text {
@@ -790,7 +821,7 @@ body.is-scrolled .nav {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
-  .hero__content { max-width: 62%; }
+  .hero__carousel { max-width: 62%; }
   .project { gap: 34px; }
 }
 
@@ -831,10 +862,12 @@ body.is-scrolled .nav {
     padding-bottom: 36px;
     min-height: 0;
   }
-  .hero__photo { position: static; order: -1; align-self: center; margin-top: -6px; }
-  .hero__photo img { height: clamp(220px, 46vw, 330px); animation-duration: 7.5s; }
+  .hero__visual { position: static; order: -1; align-self: center; margin-top: -6px; animation: float 7.5s ease-in-out infinite; }
+  .hero__visual > * { justify-self: center; }
+  .hero__photo-img { height: clamp(220px, 46vw, 330px); }
+  .hero__arrow { display: none; }
   .hero__dashes { position: static; margin-top: 30px; }
-  .hero__content { max-width: 100%; }
+  .hero__carousel { max-width: 100%; }
 }
 
 @media (max-width: 840px) {
@@ -867,5 +900,5 @@ body.is-scrolled .nav {
   }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
-  .hero__photo img { animation: none; }
+  .hero__visual { animation: none; }
 }
