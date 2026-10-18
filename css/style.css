@@ -121,6 +121,40 @@ body::before, body::after { transition: opacity .5s ease; }
   50% { transform: translate3d(26px, -16px, 0); }
 }
 
+/* ---------- Lingkaran & busur kabut (light mode) ---------- */
+.sky-rings {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  color: var(--accent);
+  transition: opacity .5s ease;
+  animation: mist 110s ease-in-out infinite;
+}
+[data-theme="dark"] .sky-rings { opacity: 0; }
+.sky-rings svg { position: absolute; }
+.sky-rings__arcs {
+  inset: -60px;
+  width: calc(100% + 120px);
+  height: calc(100% + 120px);
+}
+.sky-rings circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-opacity: .28;
+}
+.sky-rings__arcs circle { stroke-width: 1.3; stroke-opacity: .14; }
+.sky-rings .dot { fill: currentColor; stroke: none; opacity: .5; }
+.sky-rings__cluster { width: 360px; height: 360px; }
+.sky-rings__cluster--tl { top: -96px; left: -96px; }
+.sky-rings__cluster--tr { top: -96px; right: -96px; }
+@media (max-width: 700px) {
+  .sky-rings__cluster { width: 240px; height: 240px; }
+  .sky-rings__cluster--tl { top: -64px; left: -64px; }
+  .sky-rings__cluster--tr { top: -64px; right: -64px; }
+}
+
 /* ---------- Utilities ---------- */
 .container { width: min(var(--container), 100% - 40px); margin-inline: auto; }
 .section { padding: clamp(64px, 9vw, 100px) 0; }
