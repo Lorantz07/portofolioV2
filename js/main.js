@@ -29,6 +29,23 @@
       'hero.badgeGamer': 'Gamer',
       'hero.ctaProjects': 'Lihat Project',
       'hero.ctaContact': 'Hubungi Saya',
+      'hero.slide2.eyebrow': 'Terbuka untuk project',
+      'hero.slide2.title': 'Butuh website?',
+      'hero.slide2.tagline': 'Saya bantu dari desain sampai jadi — landing page, company profile, atau aplikasi web sederhana. Respon cepat, hasil rapi.',
+      'hero.slide2.secondary': 'Lihat Layanan',
+      'hero.slide3.eyebrow': 'Cara kerja sama',
+      'hero.slide3.title': 'Dari ide, jadi kenyataan',
+      'hero.slide3.tagline': 'Simpel, tanpa ribet. Kamu cukup cerita idenya, saya yang urus dari desain sampai jadi.',
+      'hero.slide3.step1': '1. Cerita idemu',
+      'hero.slide3.step2': '2. Saya kerjakan',
+      'hero.slide3.step3': '3. Revisi & serah terima',
+      'hero.slide3.cta': 'Mulai Obrolan',
+      'a11y.carousel': 'Sorotan',
+      'a11y.prev': 'Slide sebelumnya',
+      'a11y.next': 'Slide berikutnya',
+      'a11y.slide1': 'Slide 1',
+      'a11y.slide2': 'Slide 2',
+      'a11y.slide3': 'Slide 3',
 
       'about.eyebrow': 'Tentang',
       'about.title': 'Siswa yang tumbuh setiap hari',
@@ -45,13 +62,13 @@
       'projects.title': 'Karya yang saya bangun',
       'projects.subtitle': 'Beberapa project pilihan yang saya kerjakan dari nol — dari desain sampai kode.',
       'p1.tag': 'Sistem Manajemen Fashion',
-      'p1.desc': 'Aplikasi manajemen untuk bisnis fashion — mengelola produk, stok, dan pesanan dalam satu dasbor yang ringkas dan mudah dipakai.',
+      'p1.desc': 'Aplikasi manajemen untuk bisnis fashion — mengelola produk, stok, dan pesanan dalam satu dasbor yang ringkas dan mudah dipakai. Dibangun dengan Laravel 12.',
       'p1.point1': 'Kelola produk & stok dengan rapi',
       'p1.point2': 'Alur pesanan yang jelas dan tertata',
       'p1.point3': 'Dasbor sederhana untuk pengguna baru',
       'p1.link': 'Lihat Project',
       'p2.tag': 'Sistem Manajemen Kecantikan',
-      'p2.desc': 'Aplikasi untuk mengelola layanan beauty care — jadwal, pelanggan, dan layanan dalam satu tempat yang tertata.',
+      'p2.desc': 'Aplikasi untuk mengelola layanan beauty care — jadwal, pelanggan, dan layanan dalam satu tempat yang tertata. Dibangun dengan Laravel 12.',
       'p2.point1': 'Jadwal layanan tanpa bentrok',
       'p2.point2': 'Data pelanggan tersimpan rapi',
       'p2.point3': 'Ringkasan layanan dalam satu tampilan',
@@ -110,6 +127,23 @@
       'hero.badgeGamer': 'Gamer',
       'hero.ctaProjects': 'View Projects',
       'hero.ctaContact': 'Contact Me',
+      'hero.slide2.eyebrow': 'Open for projects',
+      'hero.slide2.title': 'Need a website?',
+      'hero.slide2.tagline': 'I help from design to launch — landing pages, company profiles, or simple web apps. Quick replies, clean results.',
+      'hero.slide2.secondary': 'View Services',
+      'hero.slide3.eyebrow': 'How we work together',
+      'hero.slide3.title': 'From idea to reality',
+      'hero.slide3.tagline': 'Simple and hassle-free. You share the idea, I handle everything from design to launch.',
+      'hero.slide3.step1': '1. Share your idea',
+      'hero.slide3.step2': '2. I build it',
+      'hero.slide3.step3': '3. Revisions & handover',
+      'hero.slide3.cta': 'Start a Chat',
+      'a11y.carousel': 'Highlights',
+      'a11y.prev': 'Previous slide',
+      'a11y.next': 'Next slide',
+      'a11y.slide1': 'Slide 1',
+      'a11y.slide2': 'Slide 2',
+      'a11y.slide3': 'Slide 3',
 
       'about.eyebrow': 'About',
       'about.title': 'A student who grows every day',
@@ -126,13 +160,13 @@
       'projects.title': 'Things I\u2019ve built',
       'projects.subtitle': 'A few selected projects I built from scratch — from design to code.',
       'p1.tag': 'Fashion Management System',
-      'p1.desc': 'A management app for a fashion business — handle products, stock, and orders in one clean, easy-to-use dashboard.',
+      'p1.desc': 'A management app for a fashion business — handle products, stock, and orders in one clean, easy-to-use dashboard. Built with Laravel 12.',
       'p1.point1': 'Organize products & stock neatly',
       'p1.point2': 'A clear, well-ordered order flow',
       'p1.point3': 'A simple dashboard for first-time users',
       'p1.link': 'View Project',
       'p2.tag': 'Beauty & Care Management System',
-      'p2.desc': 'An app to manage beauty care services — schedules, customers, and services in one organized place.',
+      'p2.desc': 'An app to manage beauty care services — schedules, customers, and services in one organized place. Built with Laravel 12.',
       'p2.point1': 'Conflict-free service schedules',
       'p2.point2': 'Customer data neatly stored',
       'p2.point3': 'Service summary in a single view',
@@ -196,6 +230,10 @@
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var val = dict[el.getAttribute('data-i18n')];
       if (val != null) el.textContent = val;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var val = dict[el.getAttribute('data-i18n-aria')];
+      if (val != null) el.setAttribute('aria-label', val);
     });
     root.setAttribute('lang', lang);
     if (dict['meta.title']) document.title = dict['meta.title'];
@@ -286,6 +324,98 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
     });
+  }
+
+  /* ---------- Hero carousel ---------- */
+  var heroCard = document.querySelector('.hero__card');
+  var heroSlides = document.getElementById('hero-slides');
+  if (heroCard && heroSlides) {
+    var slideEls = heroSlides.querySelectorAll('.hero__slide');
+    var heroDashes = heroCard.querySelectorAll('.hero__dash');
+    var heroPrev = heroCard.querySelector('.hero__arrow--prev');
+    var heroNext = heroCard.querySelector('.hero__arrow--next');
+    var slideCount = slideEls.length;
+    var slideIndex = 0;
+    var dragging = false, dragStartX = 0, dragDX = 0;
+
+    function renderHero() {
+      heroSlides.style.transform = 'translateX(-' + (slideIndex * 100) + '%)';
+      heroCard.setAttribute('data-slide', String(slideIndex));
+      slideEls.forEach(function (s, i) {
+        var active = i === slideIndex;
+        s.classList.toggle('is-active', active);
+        if (active) {
+          s.removeAttribute('inert');
+          s.removeAttribute('aria-hidden');
+        } else {
+          s.setAttribute('inert', '');
+          s.setAttribute('aria-hidden', 'true');
+        }
+      });
+      heroDashes.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === slideIndex);
+        if (i === slideIndex) d.setAttribute('aria-current', 'true');
+        else d.removeAttribute('aria-current');
+      });
+    }
+
+    function goToSlide(i) {
+      slideIndex = (i + slideCount) % slideCount;
+      renderHero();
+    }
+
+    if (heroPrev) heroPrev.addEventListener('click', function () { goToSlide(slideIndex - 1); });
+    if (heroNext) heroNext.addEventListener('click', function () { goToSlide(slideIndex + 1); });
+    heroDashes.forEach(function (d, i) {
+      d.addEventListener('click', function () { goToSlide(i); });
+    });
+
+    /* Geser dengan swipe / drag */
+    heroSlides.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragging = true;
+      dragStartX = e.clientX;
+      dragDX = 0;
+      heroSlides.classList.add('is-dragging');
+      heroCard.classList.add('is-dragging');
+      if (heroSlides.setPointerCapture) heroSlides.setPointerCapture(e.pointerId);
+    });
+    heroSlides.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      dragDX = e.clientX - dragStartX;
+      heroSlides.style.transform = 'translateX(calc(-' + (slideIndex * 100) + '% + ' + dragDX + 'px))';
+    });
+    function endHeroDrag() {
+      if (!dragging) return;
+      dragging = false;
+      heroSlides.classList.remove('is-dragging');
+      heroCard.classList.remove('is-dragging');
+      if (Math.abs(dragDX) > 48) goToSlide(slideIndex + (dragDX < 0 ? 1 : -1));
+      else goToSlide(slideIndex);
+      dragDX = 0;
+    }
+    heroSlides.addEventListener('pointerup', endHeroDrag);
+    heroSlides.addEventListener('pointercancel', endHeroDrag);
+
+    /* Keyboard kiri/kanan saat hero terlihat */
+    var heroInView = false;
+    if ('IntersectionObserver' in window) {
+      var heroIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { heroInView = en.isIntersecting; });
+      }, { threshold: 0.4 });
+      heroIO.observe(heroCard);
+    } else {
+      heroInView = true;
+    }
+    document.addEventListener('keydown', function (e) {
+      if (!heroInView || e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
+      var t = e.target;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+      if (e.key === 'ArrowLeft') goToSlide(slideIndex - 1);
+      else if (e.key === 'ArrowRight') goToSlide(slideIndex + 1);
+    });
+
+    renderHero();
   }
 
   /* ---------- Galeri screenshot project ---------- */
