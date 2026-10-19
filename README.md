@@ -28,7 +28,7 @@ assets/icons/         Favicon
 
 | File | Isi |
 |---|---|
-| `assets/img/foto-nanda.png` | Foto kamu (PNG transparan paling bagus) |
+| `assets/img/foto-nanda.jpg` | Foto profil kamu (JPG/PNG, rasio 1:1 alias persegi — ditampilkan sebagai lingkaran) |
 | `assets/img/nexprint.png` | Screenshot project NexPrint (masih placeholder) |
 | `assets/img/beautycare-landing.png` | Screenshot landing page BeautyCare (gambar utama) |
 | `assets/img/beautycare-login.png` | Screenshot login BeautyCare |
@@ -76,7 +76,7 @@ Section Testimoni sengaja disembunyikan (`hidden`) karena belum ada kutipan asli
 ## Checklist sebelum publikasi
 
 - [ ] Ganti nomor WhatsApp, username GitHub, dan email (lihat poin 1)
-- [ ] Timpa `assets/img/foto-nanda.png` dengan foto aslimu
+- [x] Foto profil sudah terpasang — timpa `assets/img/foto-nanda.jpg` kalau mau ganti foto
 - [ ] Timpa `assets/img/nexprint.png` dengan screenshot NexPrint asli
 - [ ] Sudah ada testimoni asli? Isi & aktifkan section Testimoni (poin 6)
 - [ ] Cek versi ID **dan** EN — pastikan terjemahannya enak dibaca
