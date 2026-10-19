@@ -627,11 +627,12 @@ body.is-scrolled .nav {
 .hero__visual {
   position: absolute;
   right: clamp(10px, 5vw, 70px);
-  bottom: -22px;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 1;
   pointer-events: none;
   display: grid;
-  animation: float 6.5s ease-in-out infinite;
+  animation: floatCenter 6.5s ease-in-out infinite;
 }
 .hero__visual > * {
   grid-area: 1 / 1;
@@ -639,13 +640,19 @@ body.is-scrolled .nav {
   align-self: end;
 }
 .hero__photo-img {
-  height: clamp(280px, 40vw, 440px);
+  height: clamp(260px, 34vw, 400px);
   width: auto;
-  filter: drop-shadow(0 30px 40px rgba(28, 34, 66, .35));
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .45);
+  box-shadow: 0 30px 60px -18px rgba(20, 26, 54, .55);
 }
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+@keyframes floatCenter {
+  0%, 100% { transform: translateY(-50%); }
+  50% { transform: translateY(calc(-50% - 12px)); }
 }
 
 /* Halo lembut di belakang foto + chip mengambang (desktop) */
@@ -1132,7 +1139,7 @@ body.is-scrolled .nav {
     padding-bottom: 36px;
     min-height: 0;
   }
-  .hero__visual { position: static; order: -1; align-self: center; margin-top: -6px; animation: float 7.5s ease-in-out infinite; }
+  .hero__visual { position: static; order: -1; align-self: center; margin-top: -6px; transform: none; animation: float 7.5s ease-in-out infinite; }
   .hero__visual > * { justify-self: center; }
   .hero__photo-img { height: clamp(220px, 46vw, 330px); }
   .hero__arrow { display: none; }
