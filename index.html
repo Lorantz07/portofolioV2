@@ -69,13 +69,16 @@
     <div class="container nav__inner">
       <a class="nav__logo" href="#beranda" aria-label="Nanda">
         <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <rect class="logo-bg" x="1" y="1" width="62" height="62" rx="18"/>
-          <path class="logo-line" d="M21 45V19l22 26V19"/>
-          <circle class="logo-dot" cx="21" cy="19" r="3.2"/>
-          <circle class="logo-dot" cx="21" cy="45" r="3.2"/>
-          <circle class="logo-dot" cx="43" cy="19" r="3.2"/>
-          <circle class="logo-dot" cx="43" cy="45" r="3.2"/>
-          <circle class="logo-spark" cx="32" cy="32" r="2.2"/>
+          <defs>
+            <linearGradient id="logoGradNav" x1="0" y1="0" x2="1" y2="1">
+              <stop class="logo-grad-a" offset="0"/>
+              <stop class="logo-grad-b" offset="1"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="62" height="62" rx="18" fill="url(#logoGradNav)"/>
+          <rect class="logo-edge" x="2" y="2" width="60" height="60" rx="17"/>
+          <path class="logo-n" d="M16.5 49V23L40.5 49V27.5"/>
+          <path class="logo-star" d="M40.5 14.9L42.035 20.965L48.1 22.5L42.035 24.035L40.5 30.1L38.965 24.035L32.9 22.5L38.965 20.965Z"/>
         </svg>
         <span class="nav__logo-text">Nanda</span>
       </a>
@@ -566,12 +569,16 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <svg class="logo-mark logo-mark--sm" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <rect class="logo-bg" x="1" y="1" width="62" height="62" rx="18"/>
-          <path class="logo-line" d="M21 45V19l22 26V19"/>
-          <circle class="logo-dot" cx="21" cy="19" r="3.2"/>
-          <circle class="logo-dot" cx="21" cy="45" r="3.2"/>
-          <circle class="logo-dot" cx="43" cy="19" r="3.2"/>
-          <circle class="logo-dot" cx="43" cy="45" r="3.2"/>
+          <defs>
+            <linearGradient id="logoGradFoot" x1="0" y1="0" x2="1" y2="1">
+              <stop class="logo-grad-a" offset="0"/>
+              <stop class="logo-grad-b" offset="1"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="62" height="62" rx="18" fill="url(#logoGradFoot)"/>
+          <rect class="logo-edge" x="2" y="2" width="60" height="60" rx="17"/>
+          <path class="logo-n" d="M16.5 49V23L40.5 49V27.5"/>
+          <path class="logo-star" d="M40.5 14.9L42.035 20.965L48.1 22.5L42.035 24.035L40.5 30.1L38.965 24.035L32.9 22.5L38.965 20.965Z"/>
         </svg>
         <span>Nanda</span>
       </div>
